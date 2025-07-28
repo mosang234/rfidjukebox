@@ -1,9 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-const char* ssid = "ZTE_2.4G_7XW35E";
-const char* password = "237F2ysL";
-const char* host = "192.168.1.6";
+const char* ssid = "change";
+const char* password = "change";
+const char* host = "change";
 
 String song_number = "";
 String status_song = "";
@@ -33,24 +33,25 @@ void loop() {
     if(data_rcvd == '1'){
       digitalWrite(D7, HIGH);
       digitalWrite(D6, LOW);
-      song_number = "692522124";
+      //Change RFID Tag
+      song_number = "Change RFID Tag";
     }else if (data_rcvd == '2'){
       digitalWrite(D6, HIGH);
       digitalWrite(D7, LOW);
-      song_number = "16715917491";
+      song_number = "Change RFID Tag";
     }else if (data_rcvd == '3'){
       digitalWrite(D7, HIGH);
       digitalWrite(D6, LOW);
-      song_number = "3111161228";
+      song_number = "Change RFID Tag";
     }else if (data_rcvd == '4'){
       digitalWrite(D6, HIGH);
       digitalWrite(D7, LOW);
-      song_number = "72100210131";
+      song_number = "Change RFID Tag";
     }
     else if (data_rcvd == '5'){
       digitalWrite(D7, HIGH);
       digitalWrite(D6, LOW);
-      song_number = "547168114";
+      song_number = "Change RFID Tag";
     }else if (data_rcvd == '6'){
       digitalWrite(D7, HIGH);
       digitalWrite(D6, LOW);
@@ -66,7 +67,7 @@ void loop() {
       if(WiFi.status()== WL_CONNECTED){
         WiFiClient client;
          HTTPClient http2;
-         http2.begin(client, "http://192.168.1.6:8080/FINAL/update_song.php?songnumber="+ song_number);
+         http2.begin(client, "http://ipaddress:port/FINAL/update_song.php?songnumber="+ song_number);
          http2.addHeader("Content-Type", "text/plain");
          http2.GET();
          String res = http2.getString();
@@ -84,7 +85,7 @@ void loop() {
       if(WiFi.status()== WL_CONNECTED){
         WiFiClient client;
          HTTPClient http2;
-         http2.begin(client, "http://192.168.1.6:8080/FINAL/update_stat_song.php?status_song="+ status_song);
+         http2.begin(client, "http://ipaddress:port/FINAL/update_stat_song.php?status_song="+ status_song);
          http2.addHeader("Content-Type", "text/plain");
          http2.GET();
          String res = http2.getString();
