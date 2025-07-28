@@ -4,71 +4,71 @@
 
 📺 **Click the thumbnail to watch the demo on Youtube Shorts**
 
-# 🎵 RFID Jukebox
+# 🎵 RFID Jukebox (WiFi-Based)
 
-The **RFID Jukebox** is an interactive system that allows users to scan RFID cards to play corresponding audio tracks. Designed as a fun and hands-on IoT project, this jukebox merges hardware with software—built using **Arduino** and a **mobile app interface via Xamarin**—to demonstrate real-time interaction between physical inputs and digital outputs.
+**RFID Jukebox** is an interactive IoT system that allows users to scan RFID cards to play corresponding music tracks through a WiFi-connected mobile application. This project uses an **Arduino Uno with WiFi** and an **RFID reader** to send data wirelessly to a mobile app built using **Xamarin**.
+
+The system demonstrates how RFID tag scanning can wirelessly trigger music playback, combining physical input with digital output for an engaging user experience.
 
 ---
 
 ## 💡 Project Overview
 
-Each RFID card is linked to a specific audio file. When scanned using the RFID reader, the system identifies the card's unique ID and triggers the playback of its assigned song on the connected speaker or app interface.
-
-This project showcases:
-- RFID-based user interaction
-- Serial communication between Arduino and a mobile app
-- Music playback logic based on RFID tag mapping
+Each RFID card is pre-linked to a music track. When scanned using the RFID reader, the Arduino reads the card's UID and sends it via **HTTP or WebSocket over WiFi** to the mobile app. The app then identifies the track and plays it, displaying the song information on screen.
 
 ---
 
 ## 🎯 Features
 
-- 📻 **RFID Card Recognition**  
-  Detects unique RFID tags and maps them to specific songs
+- 📶 **WiFi Communication**  
+  Sends RFID data from Arduino to mobile app over local network (HTTP or socket)
 
 - 📱 **Mobile App (Xamarin)**  
-  Displays song titles and controls playback via serial communication
+  Receives UID and plays the corresponding track with song info display
 
-- 🎶 **Audio Playback System**  
-  Plays pre-assigned tracks based on scanned RFID tag
+- 🪪 **RFID Tag Integration**  
+  Uses MFRC522 to scan unique RFID cards and match to songs
 
-- 🔌 **Arduino Integration**  
-  Handles RFID scanning and sends data to the mobile app via USB/Serial
+- 🎶 **Remote Audio Playback**  
+  Wireless triggering of songs through app
 
 ---
 
 ## 🧰 Tech Stack
 
-| Component     | Technology           |
-|---------------|----------------------|
-| Hardware      | Arduino Uno, MFRC522 RFID Reader |
-| Mobile App    | Xamarin (C#)         |
-| Communication | Serial (USB)         |
-| Audio         | External MP3 player / App-controlled |
+| Component     | Technology                       |
+|---------------|----------------------------------|
+| Hardware      | Arduino Uno + WiFi Module (ESP8266 or Shield) |
+| RFID Reader   | MFRC522 RFID Module              |
+| Communication | HTTP requests / WebSocket over WiFi |
+| Mobile App    | Xamarin.Forms (C#)               |
+| Audio         | Local playback on mobile         |
 
 ---
 
 ## 🛠️ Setup & Installation
 
-### 🖥️ Hardware Setup
-- Connect MFRC522 RFID reader to the Arduino
-- Upload the Arduino sketch (`rfidjukebox.ino`) using the Arduino IDE
-- Use USB to establish serial communication with your PC or mobile device
+### 🖥️ Arduino Setup
+- Connect MFRC522 RFID reader to Arduino
+- Connect and configure your WiFi module (ESP8266 or similar)
+- Upload the Arduino sketch
+- Update WiFi SSID, password, and endpoint URL in code
 
-### 📱 Mobile App
+### 📱 Mobile App Setup
 - Open the Xamarin project in Visual Studio
-- Build and deploy the app to an Android device
-- Ensure it can access the serial port or simulate playback upon receiving card data
+- Build and deploy to Android device
+- Ensure it is connected to the same local network as the Arduino
+- App will listen for UID data and trigger the appropriate track
 
 ---
 
 ## 🔁 How It Works
 
-1. User taps an RFID card on the reader
-2. Arduino reads the RFID UID
-3. UID is sent over Serial to the mobile app
-4. Mobile app maps UID to a specific track and plays the song
-5. Optionally, the song title is displayed on screen
+1. User taps an RFID card on the reader  
+2. Arduino reads the UID  
+3. UID is sent to the mobile app over WiFi  
+4. Mobile app maps UID to a song and plays it  
+5. Song title and card ID are shown on screen  
 
 ---
 
