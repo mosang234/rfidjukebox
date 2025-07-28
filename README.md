@@ -4,9 +4,9 @@
 
 📺 **Click the thumbnail to watch the demo on Youtube Shorts**
 
-# 🎵 RFID Jukebox (WiFi-Based)
+# 🎵 RFID Jukebox
 
-**RFID Jukebox** is an interactive IoT system that allows users to scan RFID cards to play corresponding music tracks through a WiFi-connected mobile application. This project uses an **Arduino Uno with WiFi** and an **RFID reader** to send data wirelessly to a mobile app built using **Xamarin**.
+**RFID Jukebox** is an interactive IoT system that allows users to scan RFID cards to play corresponding music tracks through a WiFi-connected mobile application. This project uses an **Wemos D1 R1**, **Arduino Uno** and an **RFID reader** to send data wirelessly to a mobile app built using **Xamarin**.
 
 The system demonstrates how RFID tag scanning can wirelessly trigger music playback, combining physical input with digital output for an engaging user experience.
 
@@ -14,7 +14,7 @@ The system demonstrates how RFID tag scanning can wirelessly trigger music playb
 
 ## 💡 Project Overview
 
-Each RFID card is pre-linked to a music track. When scanned using the RFID reader, the Arduino reads the card's UID and sends it via **HTTP or WebSocket over WiFi** to the mobile app. The app then identifies the track and plays it, displaying the song information on screen.
+Each RFID card is pre-linked to a music track. When scanned using the RFID reader, the Arduino reads the card's UID and sends it via **HTTP over WiFi** to the mobile app. The app then identifies the track and plays it, displaying the song information on screen.
 
 ---
 
@@ -38,9 +38,9 @@ Each RFID card is pre-linked to a music track. When scanned using the RFID reade
 
 | Component     | Technology                       |
 |---------------|----------------------------------|
-| Hardware      | Arduino Uno + WiFi Module (ESP8266 or Shield) |
+| Hardware      | Wemos D1 R1, Arduino Uno |
 | RFID Reader   | MFRC522 RFID Module              |
-| Communication | HTTP requests / WebSocket over WiFi |
+| Communication | HTTP requests over WiFi |
 | Mobile App    | Xamarin.Forms (C#)               |
 | Audio         | Local playback on mobile         |
 
